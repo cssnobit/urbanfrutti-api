@@ -1,4 +1,4 @@
-package com.urbanfrutti.urbanfrutti.api;
+package com.urbanfrutti.urbanfrutti.api.controller;
 
 import java.util.List;
 
