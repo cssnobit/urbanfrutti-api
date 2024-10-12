@@ -16,7 +16,6 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -68,10 +67,6 @@ public class Pedido {
 	private String complemento;
 
 	private String bairro;
-	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "cidade_id")
-	private Cidade cidade;
 
 	@Override
 	public int hashCode() {
@@ -194,13 +189,4 @@ public class Pedido {
 		this.bairro = bairro;
 	}
 
-	public Cidade getCidade() {
-		return cidade;
-	}
-
-	public void setCidade(Cidade cidade) {
-		this.cidade = cidade;
-	}
-	
-	
 }

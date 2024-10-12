@@ -2,10 +2,11 @@ package com.urbanfrutti.urbanfrutti.domain.entity.enums;
 
 public enum StatusPedido {
 
-	PENDENTE("PENDENTE"),
+	CRIADO("CRIADO"),
 	CONFIRMADO("CONFIRMADO"),
 	ENTREGUE("ENTREGUE"),
-	CANCELADO("CANCELADO");
+	CANCELADO("CANCELADO"),
+	EM_TRANSITO("EM_TRANSITO");
 	
 	private final String status;
 	

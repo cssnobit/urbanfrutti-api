@@ -3,6 +3,8 @@ package com.urbanfrutti.urbanfrutti.domain.entity;
 import java.math.BigDecimal;
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -21,8 +23,10 @@ public class ItemPedido {
 	private Long id;
 	
 	@ManyToOne
+	@JoinColumn(nullable = false)
 	private Produto produto;
 	
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(nullable = false)
 	private Pedido pedido;

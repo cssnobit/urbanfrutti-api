@@ -2,6 +2,7 @@ package com.urbanfrutti.urbanfrutti.domain.entity;
 
 import java.util.Objects;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -16,10 +17,19 @@ public class Usuario {
 	@Id
 	private Long id;
 	
+	@Column(nullable = false)
 	private String nomeCompleto;
+	
+	@Column(nullable = false, unique = true)
 	private String cpf;
+	
+	@Column(nullable = false, unique = true)
 	private String email;
+	
+	@Column(nullable = false)
 	private String senha;
+	
+	@Column(nullable = false)
 	private String celular;
 	
 	
