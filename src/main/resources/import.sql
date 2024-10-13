@@ -21,6 +21,7 @@ INSERT INTO tb_usuario (nome_completo, cpf, email, senha, celular) VALUES ('Juli
 INSERT INTO tb_usuario (nome_completo, cpf, email, senha, celular) VALUES ('Rafael Teixeira Lopes', '77788899900', 'rafael.lopes@email.com', 'senha707', '13922221111');
 
 INSERT INTO tb_pedido (cliente_id, cep, logradouro, numero, complemento, bairro, status, tipo_pagamento, data_criacao, data_atualizacao, total) VALUES (1, '11013000', 'Avenida Ana Costa', '100', 'Apto 201', 'Gonzaga', 'CONFIRMADO', 'CARTAO_CREDITO', '2024-10-01 08:00:00', '2024-10-01 08:00:00', 27.74);
+INSERT INTO tb_pedido (cliente_id, cep, logradouro, numero, complemento, bairro, status, tipo_pagamento, data_criacao, data_atualizacao, total) VALUES (1, '11013000', 'Avenida Ana Costa', '100', 'Apto 201', 'Gonzaga', 'CRIADO', 'CARTAO_CREDITO', '2024-10-09 08:00:00', '2024-12-01 09:00:00', 10.00);
 INSERT INTO tb_pedido (cliente_id, cep, logradouro, numero, complemento, bairro, status, tipo_pagamento, data_criacao, data_atualizacao, total) VALUES (2, '11040010', 'Rua João Pessoa', '120', 'Casa', 'Centro', 'ENTREGUE', 'BOLETO', '2024-10-02 09:00:00', '2024-10-03 10:00:00', 10.98);
 INSERT INTO tb_pedido (cliente_id, cep, logradouro, numero, complemento, bairro, status, tipo_pagamento, data_criacao, data_atualizacao, total) VALUES (3, '11025030', 'Rua Alexandre Herculano', '150', 'Apto 103', 'Boqueirão', 'CRIADO', 'PIX', '2024-10-04 10:30:00', '2024-10-04 10:30:00', 14.98);
 INSERT INTO tb_pedido (cliente_id, cep, logradouro, numero, complemento, bairro, status, tipo_pagamento, data_criacao, data_atualizacao, total) VALUES (4, '11013020', 'Avenida Conselheiro Nébias', '200', 'Loja 2', 'Vila Matias', 'CANCELADO', 'CARTAO_CREDITO', '2024-10-05 11:00:00', '2024-10-05 11:00:00', 15.00);
@@ -30,6 +31,7 @@ INSERT INTO tb_pedido (cliente_id, cep, logradouro, numero, complemento, bairro,
 INSERT INTO tb_pedido (cliente_id, cep, logradouro, numero, complemento, bairro, status, tipo_pagamento, data_criacao, data_atualizacao, total) VALUES (8, '11013040', 'Avenida Bernardino de Campos', '600', 'Apto 104', 'Pompéia', 'CONFIRMADO', 'CARTAO_CREDITO', '2024-10-10 16:30:00', '2024-10-10 16:30:00', 21.00);
 INSERT INTO tb_pedido (cliente_id, cep, logradouro, numero, complemento, bairro, status, tipo_pagamento, data_criacao, data_atualizacao, total) VALUES (9, '11030010', 'Rua Almeida de Moraes', '700', 'Apto 801', 'Boqueirão', 'ENTREGUE', 'PIX', '2024-10-11 17:30:00', '2024-10-11 17:30:00', 13.08);
 INSERT INTO tb_pedido (cliente_id, cep, logradouro, numero, complemento, bairro, status, tipo_pagamento, data_criacao, data_atualizacao, total) VALUES (10, '11045010', 'Rua Doutor Cochrane', '800', 'Casa', 'Centro', 'CANCELADO', 'BOLETO', '2024-10-12 18:00:00', '2024-10-12 18:00:00', 15.99);
+INSERT INTO tb_pedido (cliente_id, cep, logradouro, numero, complemento, bairro, status, tipo_pagamento, data_criacao, data_atualizacao, total) VALUES (1, '11013000', 'Avenida Ana Costa', '100', 'Apto 201', 'Gonzaga', 'CRIADO', 'CARTAO_CREDITO', '2024-10-09 08:00:00', '2024-12-01 09:00:00', 10.00);
 
 INSERT INTO tb_item_pedido (qtd_produto, pedido_id, produto_id, subtotal) VALUES (3, 1, 1, 16.47);
 INSERT INTO tb_item_pedido (qtd_produto, pedido_id, produto_id, subtotal) VALUES (2, 1, 2, 4.22);
@@ -41,3 +43,4 @@ INSERT INTO tb_item_pedido (qtd_produto, pedido_id, produto_id, subtotal) VALUES
 INSERT INTO tb_item_pedido (qtd_produto, pedido_id, produto_id, subtotal) VALUES (5, 4, 3, 10.00);
 INSERT INTO tb_item_pedido (qtd_produto, pedido_id, produto_id, subtotal) VALUES (1, 4, 5, 3.20);
 INSERT INTO tb_item_pedido (qtd_produto, pedido_id, produto_id, subtotal) VALUES (3, 5, 1, 16.47);
+INSERT INTO tb_item_pedido (qtd_produto, pedido_id, produto_id, subtotal) VALUES (2, 12, 10, 10.00);
