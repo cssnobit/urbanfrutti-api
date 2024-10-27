@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -53,6 +54,11 @@ public class ProdutoController {
 		BeanUtils.copyProperties(request, produtoAtual, "id");
 		
 		return produtoService.save(produtoAtual);
+	}
+	
+	@GetMapping("/search")
+	public List<Produto> getProdutoByNome(@RequestParam String nome) {
+		return produtoService.getProdutosByNome(nome);
 	}
 	
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)

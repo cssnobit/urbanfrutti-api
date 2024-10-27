@@ -1,5 +1,8 @@
 package com.urbanfrutti.urbanfrutti.domain.service;
 
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -7,8 +10,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.urbanfrutti.urbanfrutti.domain.dto.UserPedidoListResponseDTO;
+import com.urbanfrutti.urbanfrutti.domain.entity.ItemPedido;
 import com.urbanfrutti.urbanfrutti.domain.entity.Pedido;
+import com.urbanfrutti.urbanfrutti.domain.entity.Produto;
 import com.urbanfrutti.urbanfrutti.domain.entity.Usuario;
+import com.urbanfrutti.urbanfrutti.domain.entity.enums.StatusPedido;
+import com.urbanfrutti.urbanfrutti.domain.exception.EntidadeNaoEncontradaException;
+import com.urbanfrutti.urbanfrutti.domain.repository.ItemPedidoRepository;
 import com.urbanfrutti.urbanfrutti.domain.repository.PedidoRepository;
 
 @Service
@@ -18,11 +26,60 @@ public class PedidoService {
 	private PedidoRepository pedidoRepository;
 	
 	@Autowired
+	private ItemPedidoRepository itemPedidoRepository;
+	
+	@Autowired
 	private UsuarioService usuarioService;
+	
+	@Autowired
+	private ProdutoService produtoService;
+	
+	private final String MENSAGEM_PEDIDO_NAO_ENCONTRADO = 
+			"Não foi possível encontrar o pedido com o id %d";
 	
 	public Pedido getPedido(Long pedidoId) {
 		return pedidoRepository.findById(pedidoId)
-				.orElseThrow(() -> new RuntimeException());
+				.orElseThrow(() -> new EntidadeNaoEncontradaException(String
+						.format(MENSAGEM_PEDIDO_NAO_ENCONTRADO, pedidoId)));
+	}
+	
+	public Pedido savePedido(Pedido pedido) {
+		double total = 0;
+		double subtotal = 0;
+		
+		for (ItemPedido itemPedido : pedido.getItens()) {
+			Produto produto = produtoService.getProduto(itemPedido.getProduto().getId());
+			subtotal = itemPedido.getQtdProduto() * produto.getPreco().doubleValue();
+			itemPedido.setSubtotal(new BigDecimal(subtotal));
+			total += subtotal;
+		}
+		
+		if(pedido.getStatus() == null) {			
+			pedido.setStatus(StatusPedido.CRIADO);
+		}
+		pedido.setTotal(new BigDecimal(total));
+		
+		LocalDateTime now = LocalDateTime.now();
+		if(pedido.getDataCriacao() == null) {
+			pedido.setDataCriacao(now);
+			pedido.setDataAtualizacao(now);
+		} else {
+			pedido.setDataAtualizacao(now);
+		}
+	
+		return linkOrderItem(pedidoRepository.save(pedido).getId());
+	}
+	
+	private Pedido linkOrderItem(Long pedidoId) {
+		Pedido pedido = getPedido(pedidoId);
+		List<ItemPedido> itens = new ArrayList<>();
+		for (ItemPedido itemPedido : pedido.getItens()) {
+			itemPedido.setPedido(pedido);
+			itens.add(itemPedidoRepository.save(itemPedido));
+		}
+		
+		pedido.setItens(itens);
+		return pedido;
 	}
 	
 	public List<UserPedidoListResponseDTO> getAllPedidosByUserId(Long usuarioId) {
