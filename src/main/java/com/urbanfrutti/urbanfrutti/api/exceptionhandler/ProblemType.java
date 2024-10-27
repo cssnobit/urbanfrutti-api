@@ -5,7 +5,8 @@ public enum ProblemType {
 	ERRO_NEGOCIO("Erro de negócio"),
 	ERRO_ENTIDADE_NAO_ENCONTRADA("Entidade não encontrada"),
 	ERRO_ARGUMENTO_INVALIDO("Argumento inválido"),
-	ERRO_ENTIDADE_EM_USO("Entidade em uso");
+	ERRO_ENTIDADE_EM_USO("Entidade em uso"),
+	ERRO_INTERNO("Erro interno");
 	
 	private String title;
 	

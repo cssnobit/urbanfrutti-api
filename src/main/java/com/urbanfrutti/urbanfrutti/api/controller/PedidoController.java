@@ -52,6 +52,8 @@ public class PedidoController {
 			return pedidoService.savePedido(pedido);
 		} catch(ProdutoNaoEncontradoException e) {
 			throw new NegocioException(e.getMessage());
+		} catch(IllegalArgumentException e) {
+			throw new IllegalArgumentException(e.getMessage());
 		}
 	}
 }

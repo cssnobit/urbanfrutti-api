@@ -34,9 +34,6 @@ public class PedidoService {
 	@Autowired
 	private ProdutoService produtoService;
 	
-	private final String MENSAGEM_PEDIDO_NAO_ENCONTRADO = 
-			"Não foi possível encontrar o pedido com o id %d";
-	
 	public Pedido getPedido(Long pedidoId) {
 		return pedidoRepository.findById(pedidoId)
 				.orElseThrow(() -> new PedidoNaoEncontradoException(pedidoId));
@@ -48,6 +45,10 @@ public class PedidoService {
 		
 		for (ItemPedido itemPedido : pedido.getItens()) {
 			Produto produto = produtoService.getProduto(itemPedido.getProduto().getId());
+			if(produto.getQtdEstoque() < itemPedido.getQtdProduto()) {
+				throw new IllegalArgumentException("Quantidade de produto exigida é maior do que"
+						+ " existe no estoque");
+			}
 			subtotal = itemPedido.getQtdProduto() * produto.getPreco().doubleValue();
 			itemPedido.setSubtotal(new BigDecimal(subtotal));
 			total += subtotal;
