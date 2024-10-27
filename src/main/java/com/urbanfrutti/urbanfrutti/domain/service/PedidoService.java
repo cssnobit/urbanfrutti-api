@@ -15,7 +15,7 @@ import com.urbanfrutti.urbanfrutti.domain.entity.Pedido;
 import com.urbanfrutti.urbanfrutti.domain.entity.Produto;
 import com.urbanfrutti.urbanfrutti.domain.entity.Usuario;
 import com.urbanfrutti.urbanfrutti.domain.entity.enums.StatusPedido;
-import com.urbanfrutti.urbanfrutti.domain.exception.EntidadeNaoEncontradaException;
+import com.urbanfrutti.urbanfrutti.domain.exception.PedidoNaoEncontradoException;
 import com.urbanfrutti.urbanfrutti.domain.repository.ItemPedidoRepository;
 import com.urbanfrutti.urbanfrutti.domain.repository.PedidoRepository;
 
@@ -39,8 +39,7 @@ public class PedidoService {
 	
 	public Pedido getPedido(Long pedidoId) {
 		return pedidoRepository.findById(pedidoId)
-				.orElseThrow(() -> new EntidadeNaoEncontradaException(String
-						.format(MENSAGEM_PEDIDO_NAO_ENCONTRADO, pedidoId)));
+				.orElseThrow(() -> new PedidoNaoEncontradoException(pedidoId));
 	}
 	
 	public Pedido savePedido(Pedido pedido) {

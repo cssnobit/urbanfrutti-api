@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.urbanfrutti.urbanfrutti.domain.entity.Produto;
+import com.urbanfrutti.urbanfrutti.domain.exception.EntidadeEmUsoException;
+import com.urbanfrutti.urbanfrutti.domain.exception.NegocioException;
 import com.urbanfrutti.urbanfrutti.domain.service.ProdutoService;
 
 /*
@@ -44,16 +46,24 @@ public class ProdutoController {
 	@ResponseStatus(code = HttpStatus.CREATED)
 	@PostMapping
 	public Produto addProduto(@RequestBody Produto request) {
-		return produtoService.save(request);
+		try {			
+			return produtoService.save(request);
+		} catch(IllegalArgumentException e) {
+			throw new NegocioException(e.getMessage());
+		}
 	}
 	
 	@PutMapping("/{produtoId}")
 	public Produto updateProduto(@PathVariable Long produtoId, @RequestBody Produto request) {
-		Produto produtoAtual = produtoService.getProduto(produtoId);
-		
-		BeanUtils.copyProperties(request, produtoAtual, "id");
-		
-		return produtoService.save(produtoAtual);
+		try {			
+			Produto produtoAtual = produtoService.getProduto(produtoId);
+			
+			BeanUtils.copyProperties(request, produtoAtual, "id");
+			
+			return produtoService.save(produtoAtual);
+		} catch(IllegalArgumentException e) {
+			throw new IllegalArgumentException(e.getMessage());
+		}
 	}
 	
 	@GetMapping("/search")
@@ -64,6 +74,10 @@ public class ProdutoController {
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
 	@DeleteMapping("/{produtoId}")
 	public void removeProduto(@PathVariable Long produtoId) {
-		produtoService.remove(produtoId);
+		try {			
+			produtoService.remove(produtoId);
+		} catch(EntidadeEmUsoException e) {
+			throw new EntidadeEmUsoException(e.getMessage());
+		}
 	}
 }

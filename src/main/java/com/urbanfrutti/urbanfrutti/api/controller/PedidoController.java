@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.urbanfrutti.urbanfrutti.domain.dto.UserPedidoListResponseDTO;
 import com.urbanfrutti.urbanfrutti.domain.entity.Pedido;
+import com.urbanfrutti.urbanfrutti.domain.exception.NegocioException;
+import com.urbanfrutti.urbanfrutti.domain.exception.ProdutoNaoEncontradoException;
+import com.urbanfrutti.urbanfrutti.domain.exception.UsuarioNaoEncontradoException;
 import com.urbanfrutti.urbanfrutti.domain.service.PedidoService;
 
 /*
@@ -30,7 +33,11 @@ public class PedidoController {
 	
 	@GetMapping("/clientes/{usuarioId}")
 	public List<UserPedidoListResponseDTO> getAllPedidosByUserId(@PathVariable Long usuarioId) {
-		return pedidoService.getAllPedidosByUserId(usuarioId);
+		try {			
+			return pedidoService.getAllPedidosByUserId(usuarioId);
+		} catch(UsuarioNaoEncontradoException e) {
+			throw new NegocioException(e.getMessage());
+		}
 	}
 	
 	@GetMapping("/{pedidoId}")
@@ -41,6 +48,10 @@ public class PedidoController {
 	@ResponseStatus(HttpStatus.CREATED)
 	@PostMapping
 	public Pedido addPedido(@RequestBody Pedido pedido) {
-		return pedidoService.savePedido(pedido);
+		try {			
+			return pedidoService.savePedido(pedido);
+		} catch(ProdutoNaoEncontradoException e) {
+			throw new NegocioException(e.getMessage());
+		}
 	}
 }
