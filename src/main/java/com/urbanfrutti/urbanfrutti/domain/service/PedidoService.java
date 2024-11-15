@@ -49,6 +49,7 @@ public class PedidoService {
 				throw new IllegalArgumentException("Quantidade de produto exigida é maior do que"
 						+ " existe no estoque");
 			}
+			produto.setQtdEstoque(produto.getQtdEstoque() - itemPedido.getQtdProduto());
 			subtotal = itemPedido.getQtdProduto() * produto.getPreco().doubleValue();
 			itemPedido.setSubtotal(new BigDecimal(subtotal));
 			total += subtotal;

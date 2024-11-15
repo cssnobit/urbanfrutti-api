@@ -49,6 +49,19 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
 		return handleExceptionInternal(ex, problem, new HttpHeaders(), status, request);
 	}
 	
+	@ExceptionHandler(IllegalArgumentException.class)
+	public ResponseEntity<?> handleIllegalArgumentException(
+			IllegalArgumentException ex, WebRequest request) {
+		
+		HttpStatus status = HttpStatus.BAD_REQUEST;
+		ProblemType problemType = ProblemType.ERRO_NEGOCIO;
+		String mensagem = ex.getMessage();
+		
+		ProblemBody problem = makeProblemBody(status, problemType, mensagem);
+		
+		return handleExceptionInternal(ex, problem, new HttpHeaders(), status, request);
+	}
+	
 	@ExceptionHandler(NegocioException.class)
 	public ResponseEntity<?> handleNegocioException(
 			NegocioException ex, WebRequest request) {
