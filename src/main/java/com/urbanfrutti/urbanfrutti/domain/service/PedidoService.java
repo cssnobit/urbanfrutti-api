@@ -50,6 +50,7 @@ public class PedidoService {
 						+ " existe no estoque");
 			}
 			produto.setQtdEstoque(produto.getQtdEstoque() - itemPedido.getQtdProduto());
+			produtoService.save(produto);
 			subtotal = itemPedido.getQtdProduto() * produto.getPreco().doubleValue();
 			itemPedido.setSubtotal(new BigDecimal(subtotal));
 			total += subtotal;
