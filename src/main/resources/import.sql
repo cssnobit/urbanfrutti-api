@@ -9,19 +9,18 @@ INSERT INTO tb_produto(nome, preco, descricao,qtd_estoque, url_img) VALUES('Bata
 INSERT INTO tb_produto(nome, preco, descricao,qtd_estoque, url_img) VALUES('Brócolis Ninja Buquê', 12.00, 'Aproximadamente 100g', 50, 'https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcS-JArv8nbwMldUHO-wL4J-EamLB3nW-6qXMyEWUA3f8n21aw7TL0wqPvHyHHVYe8yjRJzjU0oTlx6LEElPS-X3VwggGuGl');
 INSERT INTO tb_produto(nome, preco, descricao,qtd_estoque, url_img) VALUES('Repolho Verde Unidade', 4.00, null, 10, 'https://carrefourbrfood.vtexassets.com/arquivos/ids/38215804/repolho-liso-fresco-inteiro-carrefour-aproximadamente-15-kg-1.jpg?v=637819398764030000');
 
-INSERT INTO tb_usuario (nome_completo, cpf, email, senha, celular) VALUES ('Lucas Almeida Silva', '12345678901', 'lucas.silva@email.com', 'senha123', '13912345678');
-INSERT INTO tb_usuario (nome_completo, cpf, email, senha, celular) VALUES ('Mariana Costa Oliveira', '98765432102', 'mariana.oliveira@email.com', 'senha456', '13987654321');
-INSERT INTO tb_usuario (nome_completo, cpf, email, senha, celular) VALUES ('Carlos Eduardo Santos', '11122233344', 'carlos.santos@email.com', 'senha789', '13923456789');
-INSERT INTO tb_usuario (nome_completo, cpf, email, senha, celular) VALUES ('Fernanda Lima Souza', '55566677788', 'fernanda.souza@email.com', 'senha101', '13999998888');
-INSERT INTO tb_usuario (nome_completo, cpf, email, senha, celular) VALUES ('João Pedro Pereira', '22233344455', 'joao.pereira@email.com', 'senha202', '13912223344');
-INSERT INTO tb_usuario (nome_completo, cpf, email, senha, celular) VALUES ('Roberta Martins Silva', '44455566677', 'roberta.martins@email.com', 'senha303', '13919998765');
-INSERT INTO tb_usuario (nome_completo, cpf, email, senha, celular) VALUES ('Ana Clara Ferreira', '33344455566', 'ana.ferreira@email.com', 'senha404', '13938885555');
-INSERT INTO tb_usuario (nome_completo, cpf, email, senha, celular) VALUES ('Felipe Rocha Lima', '66677788899', 'felipe.lima@email.com', 'senha505', '13944441234');
-INSERT INTO tb_usuario (nome_completo, cpf, email, senha, celular) VALUES ('Juliana Mendes Costa', '88899900011', 'juliana.mendes@email.com', 'senha606', '13955559876');
-INSERT INTO tb_usuario (nome_completo, cpf, email, senha, celular) VALUES ('Rafael Teixeira Lopes', '77788899900', 'rafael.lopes@email.com', 'senha707', '13922221111');
+INSERT INTO tb_usuario (nome_completo, cpf, email, senha, celular) VALUES ('Lucas Almeida Silva', '12345678901', 'lucas.silva@email.com', '$2a$10$6j9BqfdTj1q08Xq1Q4H2We2Omi4FskfWSWTVmj905u9olmXBlY0pS', '13912345678');
+INSERT INTO tb_usuario (nome_completo, cpf, email, senha, celular) VALUES ('Mariana Costa Oliveira', '98765432102', 'mariana.oliveira@email.com', '$2a$10$7DRZiKr63hbSVTL023.8TO.J2rSC7ZdufmSvFSmfiEvr0ls.GSjIS', '13987654321');
+INSERT INTO tb_usuario (nome_completo, cpf, email, senha, celular) VALUES ('Carlos Eduardo Santos', '11122233344', 'carlos.santos@email.com', '$2a$10$S9Q9TBQVJwgV1HItxp3sze48jIEumbia6IbJxcNbfhz7ZfOR2reBy', '13923456789');
+INSERT INTO tb_usuario (nome_completo, cpf, email, senha, celular) VALUES ('Fernanda Lima Souza', '55566677788', 'fernanda.souza@email.com', '$2a$10$TFsL.EjdbmMXMkR46MxD/u93sT/AoJwscTrfKCMU1OF0.tU8MnBW6', '13999998888');
+INSERT INTO tb_usuario (nome_completo, cpf, email, senha, celular) VALUES ('João Pedro Pereira', '22233344455', 'joao.pereira@email.com', '$2a$10$KwzEuLYwb8VaH4u/W2TXm.NUaOFQZoqwphjtl/0ftQzzxUGf.MexG', '13912223344');
+INSERT INTO tb_usuario (nome_completo, cpf, email, senha, celular) VALUES ('Roberta Martins Silva', '44455566677', 'roberta.martins@email.com', '$2a$10$TwDGm7bole/WRHeiLnvm7uTXzq3Ayu.bZ9Z5VJzbEU6u5K6hfrKZa', '13919998765');
+INSERT INTO tb_usuario (nome_completo, cpf, email, senha, celular) VALUES ('Ana Clara Ferreira', '33344455566', 'ana.ferreira@email.com', '$2a$10$eDCx7ggtQv.e0g9/r3/PHuaKf0HUh2g717NlQArfpjOIduB6dJOw2', '13938885555');
+INSERT INTO tb_usuario (nome_completo, cpf, email, senha, celular) VALUES ('Felipe Rocha Lima', '66677788899', 'felipe.lima@email.com', '$2a$10$itpsQ95x3OubuDntO3V8g.3Jh7FppW4Uu0zwb4bPqsca0AtpQEpiW', '13944441234');
+INSERT INTO tb_usuario (nome_completo, cpf, email, senha, celular) VALUES ('Juliana Mendes Costa', '88899900011', 'juliana.mendes@email.com', '$2a$10$C0AtchVuaJiY.U3JneOHJuhkEtHarKkEC3hDx1QVm169akRIRkmeW', '13955559876');
+INSERT INTO tb_usuario (nome_completo, cpf, email, senha, celular) VALUES ('Rafael Teixeira Lopes', '77788899900', 'rafael.lopes@email.com', '$2a$10$s.zif3jO9eMhbX2oc/1O0uDByARI4qM177Xlornvv.SSk4YATz9Kq', '13922221111');
 
 INSERT INTO tb_pedido (cliente_id, cep, logradouro, numero, complemento, bairro, status, tipo_pagamento, data_criacao, data_atualizacao, total) VALUES (1, '11013000', 'Avenida Ana Costa', '100', 'Apto 201', 'Gonzaga', 'CONFIRMADO', 'CARTAO_CREDITO', '2024-10-01 08:00:00', '2024-10-01 08:00:00', 27.74);
-INSERT INTO tb_pedido (cliente_id, cep, logradouro, numero, complemento, bairro, status, tipo_pagamento, data_criacao, data_atualizacao, total) VALUES (1, '11013000', 'Avenida Ana Costa', '100', 'Apto 201', 'Gonzaga', 'CRIADO', 'CARTAO_CREDITO', '2024-10-09 08:00:00', '2024-12-01 09:00:00', 10.00);
 INSERT INTO tb_pedido (cliente_id, cep, logradouro, numero, complemento, bairro, status, tipo_pagamento, data_criacao, data_atualizacao, total) VALUES (2, '11040010', 'Rua João Pessoa', '120', 'Casa', 'Centro', 'ENTREGUE', 'BOLETO', '2024-10-02 09:00:00', '2024-10-03 10:00:00', 10.98);
 INSERT INTO tb_pedido (cliente_id, cep, logradouro, numero, complemento, bairro, status, tipo_pagamento, data_criacao, data_atualizacao, total) VALUES (3, '11025030', 'Rua Alexandre Herculano', '150', 'Apto 103', 'Boqueirão', 'CRIADO', 'PIX', '2024-10-04 10:30:00', '2024-10-04 10:30:00', 14.98);
 INSERT INTO tb_pedido (cliente_id, cep, logradouro, numero, complemento, bairro, status, tipo_pagamento, data_criacao, data_atualizacao, total) VALUES (4, '11013020', 'Avenida Conselheiro Nébias', '200', 'Loja 2', 'Vila Matias', 'CANCELADO', 'CARTAO_CREDITO', '2024-10-05 11:00:00', '2024-10-05 11:00:00', 15.00);
@@ -31,7 +30,6 @@ INSERT INTO tb_pedido (cliente_id, cep, logradouro, numero, complemento, bairro,
 INSERT INTO tb_pedido (cliente_id, cep, logradouro, numero, complemento, bairro, status, tipo_pagamento, data_criacao, data_atualizacao, total) VALUES (8, '11013040', 'Avenida Bernardino de Campos', '600', 'Apto 104', 'Pompéia', 'CONFIRMADO', 'CARTAO_CREDITO', '2024-10-10 16:30:00', '2024-10-10 16:30:00', 21.00);
 INSERT INTO tb_pedido (cliente_id, cep, logradouro, numero, complemento, bairro, status, tipo_pagamento, data_criacao, data_atualizacao, total) VALUES (9, '11030010', 'Rua Almeida de Moraes', '700', 'Apto 801', 'Boqueirão', 'ENTREGUE', 'PIX', '2024-10-11 17:30:00', '2024-10-11 17:30:00', 13.08);
 INSERT INTO tb_pedido (cliente_id, cep, logradouro, numero, complemento, bairro, status, tipo_pagamento, data_criacao, data_atualizacao, total) VALUES (10, '11045010', 'Rua Doutor Cochrane', '800', 'Casa', 'Centro', 'CANCELADO', 'BOLETO', '2024-10-12 18:00:00', '2024-10-12 18:00:00', 15.99);
-INSERT INTO tb_pedido (cliente_id, cep, logradouro, numero, complemento, bairro, status, tipo_pagamento, data_criacao, data_atualizacao, total) VALUES (1, '11013000', 'Avenida Ana Costa', '100', 'Apto 201', 'Gonzaga', 'CRIADO', 'CARTAO_CREDITO', '2024-10-09 08:00:00', '2024-12-01 09:00:00', 10.00);
 
 INSERT INTO tb_item_pedido (qtd_produto, pedido_id, produto_id, subtotal) VALUES (3, 1, 1, 16.47);
 INSERT INTO tb_item_pedido (qtd_produto, pedido_id, produto_id, subtotal) VALUES (2, 1, 2, 4.22);
@@ -43,4 +41,3 @@ INSERT INTO tb_item_pedido (qtd_produto, pedido_id, produto_id, subtotal) VALUES
 INSERT INTO tb_item_pedido (qtd_produto, pedido_id, produto_id, subtotal) VALUES (5, 4, 3, 10.00);
 INSERT INTO tb_item_pedido (qtd_produto, pedido_id, produto_id, subtotal) VALUES (1, 4, 5, 3.20);
 INSERT INTO tb_item_pedido (qtd_produto, pedido_id, produto_id, subtotal) VALUES (3, 5, 1, 16.47);
-INSERT INTO tb_item_pedido (qtd_produto, pedido_id, produto_id, subtotal) VALUES (2, 12, 10, 10.00);

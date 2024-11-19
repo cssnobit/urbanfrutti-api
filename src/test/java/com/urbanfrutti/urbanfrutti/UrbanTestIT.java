@@ -205,7 +205,7 @@ class UrbanTestIT {
 	}
 	
 	/*
-	 * Teste Unitário - O valor vinal deve ser 6.00, visto que o produto do id 3 custa 2.00
+	 * Teste Unitário - O valor final deve ser 6.00, visto que o produto do id 3 custa 2.00
 	 * a unidade e foram pedidos 3.
 	 * */
 	@Test

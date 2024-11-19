@@ -14,7 +14,7 @@ create table tb_usuario (
 	nome_completo varchar(100) not null,
 	cpf varchar(11),
 	email varchar(80) not null unique,
-	senha varchar(16) not null,
+	senha varchar(255) not null,
 	celular varchar(11) not null,
 	
 	primary key(id)

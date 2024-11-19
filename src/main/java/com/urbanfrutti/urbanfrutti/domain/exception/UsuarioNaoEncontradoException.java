@@ -4,6 +4,10 @@ public class UsuarioNaoEncontradoException extends EntidadeNaoEncontradaExceptio
 
 	private static final long serialVersionUID = 1L;
 
+	public UsuarioNaoEncontradoException() {
+		super("Usuário não encontrado");
+	}
+	
 	public UsuarioNaoEncontradoException(String mensagem) {
 		super(mensagem);
 	}
